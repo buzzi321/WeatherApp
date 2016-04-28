@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="http://code.angularjs.org/1.1.4/angular.js"></script>
+    <title>Weather Widget</title>
+
+</head>
+
+<body>
+<div ng-app="weatherapp" ng-controller="WeatherCtrl">
+    <div class="input">
+        Zip Code:<input type="text" ng-model="zipcode" autofocus placeholder="Enter Zip Code..." >
+    </div>
+    <br/>
+
+
+    <span ng-show="zipcode.length==5">
+
+        <h2>City: {{weather.city}}</h2><br/>
+        <h2>Country:{{weather.country}}</h2>
+        <weather-icon cloudiness="{{ weather.clouds }}"></weather-icon>
+
+        <h1>Current: {{ weather.temp.current}}</h1>
+       <!-- <span ng-bind="weather.temp.min"></span>
+         <span ng-bind="weather.temp.max"></span>-->
+    </span>
+</div>
+
+
+<script src="WeatherCtrl.js"></script>
+<script src="WeatherService.js"></script>
+
+</body>
+
+</html>
+
